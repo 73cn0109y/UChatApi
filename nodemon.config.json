@@ -1,0 +1,14 @@
+{
+    "verbose": true,
+    "ignore": [
+        "config/*",
+        "data/*",
+        "e2e/*",
+        "public/*",
+        "src/*",
+        "typings/*",
+        "database/*"
+    ],
+    "delay": 1500,
+    "ext": "js,ejs,html"
+}

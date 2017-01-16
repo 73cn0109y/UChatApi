@@ -1,0 +1,59 @@
+<div class="container" style="padding-top:1rem;">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Services</h4>
+                </div>
+
+                <div class="card-block">
+                    <div class="form-group row">
+                        <div class="col-md-2">Beam</div>
+                        <div class="col-md-4">
+                            <button type="button" onClick="connectService('beam', <%= user.Services.Beam.Connected %>)"
+                                    class="btn <%= user.Services.Beam.Connected ? 'btn-success' : 'btn-primary' %>">
+                                Connect<%= user.Services.Beam.Connected ? 'ed' : '' %>
+                            </button>
+                        </div>
+
+                        <div class="col-md-2">LiveEdu</div>
+                        <div class="col-md-4">
+                            <button type="button" onClick="connectService('liveedu', <%= user.Services.Liveedu.Connected %>)"
+                                    class="btn <%= user.Services.Liveedu.Connected ? 'btn-success' : 'btn-primary' %>">
+                                Connect<%= user.Services.Liveedu.Connected ? 'ed' : '' %>
+                            </button>
+                        </div>
+
+                        <div class="col-md-2">Twitch</div>
+                        <div class="col-md-4">
+                            <button type="button" onClick="connectService('twitch', <%= user.Services.Twitch.Connected %>)"
+                                    class="btn <%= user.Services.Twitch.Connected ? 'btn-success' : 'btn-primary' %>">
+                                Connect<%= user.Services.Twitch.Connected ? 'ed' : '' %>
+                            </button>
+                        </div>
+
+                        <div class="col-md-2">Youtube</div>
+                        <div class="col-md-4">
+                            <button type="button" onClick="connectService('youtube', <%= user.Services.Youtube.Connected %>)"
+                                    class="btn <%= user.Services.Youtube.Connected ? 'btn-success' : 'btn-primary' %>">
+                                Connect<%= user.Services.Youtube.Connected ? 'ed' : '' %>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Settings</h4>
+                </div>
+
+                <div class="card-block">
+                    <p>something something something...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
