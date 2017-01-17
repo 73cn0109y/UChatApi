@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start-dev": "set NODE_ENV=development&& nodemon --config ./nodemon.config.json app.js",
-    "start": "node --use-strict app.js",
+    "start": "node app.js",
     "build-dev": "babel src -d dist -w",
     "build": "set NODE_ENV=production&& babel src -d dist",
     "database": "mongod --dbpath=\"C:/Users/texpe/Code/UChat/Server/database/\""
