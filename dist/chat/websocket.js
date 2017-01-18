@@ -15,7 +15,7 @@ var SocketServer = function () {
 	function SocketServer(app) {
 		_classCallCheck(this, SocketServer);
 
-		this.server = io(app, {
+		this.server = io.listen(app, {
 			origins: '*:*'
 		});
 

@@ -7,7 +7,7 @@ const BotManager = require('./manager');
 
 class SocketServer {
 	constructor(app) {
-		this.server = io(app, {
+		this.server = io.listen(app, {
 			origins: '*:*'
 		});
 
