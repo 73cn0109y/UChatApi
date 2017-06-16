@@ -90,6 +90,8 @@ var Twitch = function (_EventEmitter) {
 			});
 
 			this.client.on('cheer', function (channel, userstate, message) {
+				console.log('[Cheer]' + userstate.username + ': ' + message);
+
 				var userInfo = {
 					Username: userstate.username,
 					isModerator: userstate.mod,

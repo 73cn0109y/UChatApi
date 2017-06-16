@@ -67,6 +67,8 @@ class Twitch extends EventEmitter {
 		});
 
 		this.client.on('cheer', (channel, userstate, message) => {
+			console.log('[Cheer]' + userstate.username + ': ' + message);
+
 			const userInfo = {
 				Username     : userstate.username,
 				isModerator  : userstate.mod,
