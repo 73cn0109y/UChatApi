@@ -3,6 +3,7 @@
  */
 
 const UserModel = require('../../models/user');
+const SettingsModel = require('../../models/settings');
 
 let User = {
 	login: (data, callback) => {
@@ -43,11 +44,20 @@ let User = {
 		});
 
 		user.save((err) => {
-			console.log(err);
-			if(callback) {
-				if(err) callback({ success: false, error: err.errmsg });
-				else callback({ success: true, user: user });
-			} else console.error(err);
+			if(err) {
+				if(callback) callback({ success: false, error: err.errmsg });
+				return;
+			}
+
+			let settings = new SettingsModel({ Token: user.Token });
+			settings.save(err => {
+				if(err) {
+					UserModel.findOne({ _id: user._id }).remove();
+					if(callback) callback({ success: false, error: err.errmsg });
+					return;
+				}
+				if(callback) callback({ success: true, user: user, settings: settings });
+			});
 		});
 	}
 };

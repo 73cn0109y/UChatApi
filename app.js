@@ -3,8 +3,6 @@
  */
 'use strict';
 
-'use strict';
-
 const cluster = require('cluster');
 
 const ip = process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';

@@ -29,6 +29,14 @@ var SettingsSchema = new mongoose.Schema({
 	ChromaKey: {
 		type: String,
 		default: 'Green'
+	},
+	MessageBack: {
+		type: String,
+		default: 'rgba(0, 50, 175, 0.3)'
+	},
+	MessageMentionBack: {
+		type: String,
+		default: 'rgba(255, 75, 75, 0.4)'
 	}
 });
 

@@ -78,9 +78,11 @@ class Server {
 	}
 
 	finalInit() {
-		let server = this.app.listen(this.options.port, this.options.ip, () => {
-			console.log(`Server is listening on ${this.options.ip}:${this.options.port}...`);
-		});
+		let server = require('http').createServer(this.app);
+		server.listen(this.options.port, this.options.ip);
+		/*let server = this.app.listen(this.options.port, this.options.ip, () => {
+		 console.log(`Server is listening on ${this.options.ip}:${this.options.port}...`);
+		 });*/
 
 		this.socketServer = new SocketServer(server);
 	}

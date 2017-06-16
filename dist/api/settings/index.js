@@ -31,9 +31,16 @@ router.put('/settings', function (req, res, next) {
 		new: true,
 		upsert: true
 	}, function (err, settings) {
-		settings = settings.toObject();
-		delete settings._id;
-		delete settings.Token;
+		if (!settings) {
+			settings = new SettingsModel(req.body);
+			settings.Token = req.query.token;
+			settings.save(function (err) {
+				if (err) return res.status(400).json({ success: false }).end();
+				res.json({ success: true, settings: settings }).end();
+			});
+			return;
+		} else settings = settings.toObject();
+
 		if (err) return res.status(400).json({ success: false }).end();
 		res.json({ success: true, settings: settings }).end();
 	});

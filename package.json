@@ -32,6 +32,7 @@
     "ymi.js": "^0.1.3"
   },
   "devDependencies": {
+    "babel-cli": "^6.24.1",
     "babel-preset-es2015": "^6.18.0",
     "nodemon": "^1.11.0"
   }

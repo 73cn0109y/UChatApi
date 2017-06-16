@@ -88,6 +88,28 @@ var Twitch = function (_EventEmitter) {
 
 				if (callbacks.onChatMessage) callbacks.onChatMessage(_this3.api_token, _this3.Name, channel.substr(1), userInfo, message);
 			});
+
+			this.client.on('cheer', function (channel, userstate, message) {
+				var userInfo = {
+					Username: userstate.username,
+					isModerator: userstate.mod,
+					isSubscriber: userstate.subscriber,
+					isBroadcaster: userstate.badges.hasOwnProperty('broadcaster')
+				};
+
+				var cheerRegex = /(\b|^|\s)cheer(\d+)(\s|$)/ig;
+
+				message = message.replace(cheerRegex, function (match, p1, p2) {
+					var color = 'gray';
+					p2 = parseInt(p2);
+
+					if (p2 >= 10000) color = 'red';else if (p2 >= 5000) color = 'blue';else if (p2 >= 1000) color = 'green';else if (p2 >= 100) color = 'purple';
+
+					return '<img src="http://static-cdn.jtvnw.net/bits/dark/animated/' + color + '/1" class="twitch-cheer">';
+				});
+
+				if (callbacks.onChatMessage) callbacks.onChatMessage(_this3.api_token, _this3.Name, channel.substr(1), userInfo, message);
+			});
 		}
 	}, {
 		key: 'sendMessage',
